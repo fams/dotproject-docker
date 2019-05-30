@@ -54,22 +54,22 @@ INSERT INTO `sysvals` (`sysval_key_id`,`sysval_title`,`sysval_value`) VALUES("3"
 CREATE TABLE `task_contacts` (
   `task_id` INT(10) NOT NULL,
   `contact_id` INT(10) NOT NULL
-) TYPE=MyISAM;
+) ;
 
 CREATE TABLE `task_departments` (
   `task_id` INT(10) NOT NULL,
   `department_id` INT(10) NOT NULL
-) TYPE=MyISAM;
+) ;
 
 CREATE TABLE `project_contacts` (
   `project_id` INT(10) NOT NULL,
   `contact_id` INT(10) NOT NULL
-) TYPE=MyISAM;
+) ;
 
 CREATE TABLE `project_departments` (
   `project_id` INT(10) NOT NULL,
   `department_id` INT(10) NOT NULL
-) TYPE=MyISAM;
+) ;
 
 # 20040727
 # add user specific task priority
@@ -150,7 +150,7 @@ CREATE TABLE `user_task_pin` (
   `task_id` int(10) NOT NULL default '0',
   `task_pinned` tinyint(2) NOT NULL default '1',
 PRIMARY KEY (`user_id`,`task_id`)
-) TYPE=MyISAM;
+) ;
 
 # 20041022
 # Permissions, files, resources
@@ -174,7 +174,7 @@ CREATE TABLE `gacl_acl` (
   KEY `gacl_enabled_acl` (`enabled`),
   KEY `gacl_section_value_acl` (`section_value`),
   KEY `gacl_updated_date_acl` (`updated_date`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -194,7 +194,7 @@ CREATE TABLE `gacl_acl_sections` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_value_acl_sections` (`value`),
   KEY `gacl_hidden_acl_sections` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -215,7 +215,7 @@ CREATE TABLE `gacl_aco` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_section_value_value_aco` (`section_value`,`value`),
   KEY `gacl_hidden_aco` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -230,7 +230,7 @@ CREATE TABLE `gacl_aco_map` (
   `section_value` varchar(230) NOT NULL default '0',
   `value` varchar(230) NOT NULL default '',
   PRIMARY KEY  (`acl_id`,`section_value`,`value`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -250,7 +250,7 @@ CREATE TABLE `gacl_aco_sections` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_value_aco_sections` (`value`),
   KEY `gacl_hidden_aco_sections` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -271,7 +271,7 @@ CREATE TABLE `gacl_aro` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_section_value_value_aro` (`section_value`,`value`),
   KEY `gacl_hidden_aro` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -293,7 +293,7 @@ CREATE TABLE `gacl_aro_groups` (
   KEY `gacl_parent_id_aro_groups` (`parent_id`),
   KEY `gacl_value_aro_groups` (`value`),
   KEY `gacl_lft_rgt_aro_groups` (`lft`,`rgt`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -307,7 +307,7 @@ CREATE TABLE `gacl_aro_groups_map` (
   `acl_id` int(11) NOT NULL default '0',
   `group_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`acl_id`,`group_id`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -322,7 +322,7 @@ CREATE TABLE `gacl_aro_map` (
   `section_value` varchar(230) NOT NULL default '0',
   `value` varchar(230) NOT NULL default '',
   PRIMARY KEY  (`acl_id`,`section_value`,`value`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -342,7 +342,7 @@ CREATE TABLE `gacl_aro_sections` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_value_aro_sections` (`value`),
   KEY `gacl_hidden_aro_sections` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -363,7 +363,7 @@ CREATE TABLE `gacl_axo` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_section_value_value_axo` (`section_value`,`value`),
   KEY `gacl_hidden_axo` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -385,7 +385,7 @@ CREATE TABLE `gacl_axo_groups` (
   KEY `gacl_parent_id_axo_groups` (`parent_id`),
   KEY `gacl_value_axo_groups` (`value`),
   KEY `gacl_lft_rgt_axo_groups` (`lft`,`rgt`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -399,7 +399,7 @@ CREATE TABLE `gacl_axo_groups_map` (
   `acl_id` int(11) NOT NULL default '0',
   `group_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`acl_id`,`group_id`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -414,7 +414,7 @@ CREATE TABLE `gacl_axo_map` (
   `section_value` varchar(230) NOT NULL default '0',
   `value` varchar(230) NOT NULL default '',
   PRIMARY KEY  (`acl_id`,`section_value`,`value`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -434,7 +434,7 @@ CREATE TABLE `gacl_axo_sections` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gacl_value_axo_sections` (`value`),
   KEY `gacl_hidden_axo_sections` (`hidden`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -448,7 +448,7 @@ CREATE TABLE `gacl_groups_aro_map` (
   `group_id` int(11) NOT NULL default '0',
   `aro_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`group_id`,`aro_id`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -462,7 +462,7 @@ CREATE TABLE `gacl_groups_axo_map` (
   `group_id` int(11) NOT NULL default '0',
   `axo_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`group_id`,`axo_id`)
-) TYPE=MyISAM;
+) ;
 # --------------------------------------------------------
 
 #
@@ -476,7 +476,7 @@ CREATE TABLE `gacl_phpgacl` (
   `name` varchar(230) NOT NULL default '',
   `value` varchar(230) NOT NULL default '',
   PRIMARY KEY  (`name`)
-) TYPE=MyISAM;
+) ;
 
 
 INSERT INTO `gacl_phpgacl` (name, value) VALUES ('version', '3.3.2');
@@ -503,7 +503,7 @@ CREATE TABLE `user_events` (
   `event_id` int(11) NOT NULL default '0',
   KEY `uek1` (`user_id`, `event_id`),
   KEY `uek2` (`event_id`, `user_id`)
-) TYPE=MyISAM;
+) ;
 
 
 # Changes to handle file checkin/checkout support
@@ -559,7 +559,7 @@ CREATE TABLE `billingcode` (
   `billingcode_status` int(1) NOT NULL default '0',
   `company_id` bigint(20) NOT NULL default '0',
   PRIMARY KEY  (`billingcode_id`)
-) TYPE=MyISAM;
+) ;
 
 # 20050125
 # Session handling table.
@@ -571,7 +571,7 @@ CREATE TABLE `sessions` (
 	PRIMARY KEY (`session_id`),
 	KEY (`session_updated`),
 	KEY (`session_created`)
-) TYPE=MyISAM;
+) ;
 
 # 20050216
 # Added logging the IP of a user
@@ -591,7 +591,7 @@ CREATE TABLE `config` (
   `config_type` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`config_id`),
   UNIQUE KEY `config_name` (`config_name`)
-) TYPE=MyISAM AUTO_INCREMENT=47 ;
+)  AUTO_INCREMENT=47 ;
 
 #
 # Dumping data for table `config`
@@ -746,7 +746,7 @@ CREATE TABLE `forum_visits` (
   `visit_message` INT(10) NOT NULL DEFAULT 0,
   `visit_date` TIMESTAMP,
   KEY `idx_fv` (`visit_user`, `visit_forum`, `visit_message`)
-) TYPE=MyISAM;
+) ;
 
 # 20050303
 #
@@ -767,7 +767,7 @@ CREATE TABLE `event_queue` (
   KEY `queue_module` (`queue_module`),
   KEY `queue_type` (`queue_type`),
   KEY `queue_origin_id` (`queue_origin_id`)
-) TYPE=MyISAM;
+) ;
 
 
 # 20050303

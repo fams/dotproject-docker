@@ -14,6 +14,7 @@ $baseUrl .= isset($_SERVER['SCRIPT_NAME']) ? dirname(dirname($_SERVER['SCRIPT_NA
 
 require_once DP_BASE_DIR.'/install/install.inc.php';
 require_once DP_BASE_DIR.'/install/versions.inc.php';
+require_once DP_BASE_DIR . '/classes/query.class.php';
 
 $AppUI = new InstallerUI(); // Fake AppUI class to appease the db_connect utilities.
 
@@ -140,6 +141,7 @@ if ($dbc && ($do_db || $do_db_cfg)) {
   $last_version = $db_version['code_version'];
   // Convert the code version to a version string.
   if ($last_version != $current_version) {
+  dPmsg($last_version . " ot " . $current_version);
     // Check for from and to versions
     $from_key = array_search($last_version, $versionPath);
     $to_key = array_search($current_version, $versionPath);

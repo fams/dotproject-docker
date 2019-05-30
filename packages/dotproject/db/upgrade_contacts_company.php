@@ -44,7 +44,7 @@ foreach (db_loadList($sql) as $contact) {
 function updateContactCompany($contact_array, $company_id) {
 	$q = new DBQuery;
 	$q->addTable('contacts');
-	$q->addUpdate('contact_company = ' . $company_id);
+	$q->addUpdate('contact_company', $company_id);
 	$q->addWhere('contact_id = '.$contact_array['contact_id']);
     db_exec($q->prepareUpdate());
 }
