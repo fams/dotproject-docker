@@ -66,7 +66,7 @@ foreach ($users as $user) {
 				  dPmsg($msg);
 				}
 				$q->addTable('users');
-				$q->addUpdate('user_contact=LAST_INSERT_ID()');
+				$q->addUpdate('user_contact','LAST_INSERT_ID()');
 				$q->addWhere('user_id = '.$user['user_id']);
                 db_exec($q->prepare(true));
                 $msg =  db_error();
